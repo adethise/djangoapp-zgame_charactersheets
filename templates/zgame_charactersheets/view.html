@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ character.name }} - Zgame characters{% endblock %}
+
+{% block import %}
+{% endblock %}
+
+{% block content %}
+<div id="character-bio" class="row">
+    <div class="col-md-4">
+        <div class="panel panel-default panel-body">
+            <p><b>{{ character.name }}</b> ({{ character.player }})</p>
+            <p>{{ character.get_race_display }}</p>
+            <p><i>Niveau {{ character.level }}</i></p>
+        </div>
+    </div>
+</div>
+<div id="character-stats" class="row">
+    <div id="character-stats-physical" class="col-md-2">
+        <table class="table table-condensed table-striped table-bordered">
+            <tr>
+                <td><b>Force</b></td>
+                <td style="width:15%">{{ character.str }}</td>
+            </tr>
+            <tr>
+                <td><b>Dextérité</b></td>
+                <td style="width:15%">{{ character.dex }}</td>
+            </tr>
+            <tr>
+                <td><b>Agilité</b></td>
+                <td style="width:15%">{{ character.agi }}</td>
+            </tr>
+            <tr>
+                <td><b>Vigueur</b></td>
+                <td style="width:15%">{{ character.vig }}</td>
+            </tr>
+            <tr>
+                <td><b>Vitalité</b></td>
+                <td style="width:15%">{{ character.vit }}</td>
+            </tr>
+        </table>
+    </div>
+    <div id="character-stats-mental" class="col-md-2">
+        <table class="table table-condensed table-striped table-bordered">
+            <tr>
+                <td><b>Intelligence</b></td>
+                <td style="width:15%">{{ character.int }}</td>
+            </tr>
+            <tr>
+                <td><b>Perception</b></td>
+                <td style="width:15%">{{ character.per }}</td>
+            </tr>
+            <tr>
+                <td><b>Charisme</b></td>
+                <td style="width:15%">{{ character.cha }}</td>
+            </tr>
+            <tr>
+                <td><b>Volonté</b></td>
+                <td style="width:15%">{{ character.wil }}</td>
+            </tr>
+            <tr>
+                <td><b>Mémoire</b></td>
+                <td style="width:15%">{{ character.mem }}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+{% endblock %}

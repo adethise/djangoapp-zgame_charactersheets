@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Zgame characters{% endblock %}
+
+{% block imports %}
+<link rel="stylesheet" href={% static "zgame_charactersheets/style.css" %}>
+{% endblock %}
+
+{% block content %}
+<div class="col-md-3">
+    <table class="table table-hover">
+        <thead>
+            <th>Personnage</th>
+            <th>Joueur</th>
+        </thead>
+        <tbody>
+            {% for character in characters %}
+            <tr>
+                <td><a href="{{ character.get_absolute_url }}" class="cell-link">{{ character.name }}</a></td>
+                <td><a href="{{ character.get_absolute_url }}" class="cell-link">{{ character.player }}</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <hr>
+
+    <p><a href="{% url "create" %}" class="btn btn-default">Create a new character</a></p>
+</div>
+{% endblock %}
